@@ -31,7 +31,7 @@ class SearchVC: UIViewController {
         // every time the view appears the navigationBar will be set as hidden.
         // if we did this in viewDidLoad, the navigationBar will be set hidden only once (after loading).
         // Then if we navigate through the navigation controller to the next VC (which will have a navigationBar) and go back to SearchVC the navigationBar will be there as well.
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func pushFollowerListVC() {

@@ -81,8 +81,6 @@
 				5CBA2A2A2547312000A327E5 /* Extensions */,
 				5CC62FC32544BB36009F9AFC /* Custom Views */,
 				5CC62FC22544BA35009F9AFC /* Screens */,
-				5C53A70E253F80FC00F68DDC /* Assets.xcassets */,
-				5C53A710253F80FC00F68DDC /* LaunchScreen.storyboard */,
 				5C53A713253F80FC00F68DDC /* Info.plist */,
 			);
 			path = GHFollowers;
@@ -109,6 +107,8 @@
 		5CBA2A2C2547318100A327E5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				5C53A70E253F80FC00F68DDC /* Assets.xcassets */,
+				5C53A710253F80FC00F68DDC /* LaunchScreen.storyboard */,
 				5C53A705253F80FA00F68DDC /* AppDelegate.swift */,
 				5C53A707253F80FA00F68DDC /* SceneDelegate.swift */,
 			);
