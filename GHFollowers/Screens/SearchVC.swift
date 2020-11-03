@@ -20,6 +20,11 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground // light-mode white and dark-mode black
+        
+        view.addSubview(logoImageView)
+        view.addSubview(usernameTextField)
+        view.addSubview(callToActionButton)
+        
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
@@ -51,7 +56,6 @@ class SearchVC: UIViewController {
     }
     
     private func configureLogoImageView() {
-        view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = UIImage(named: "gh-logo")
         
@@ -64,8 +68,6 @@ class SearchVC: UIViewController {
     }
     
     private func configureTextField() {
-        view.addSubview(usernameTextField)
-        
         // sets the self (current viewController) to listen for changes in usernameTextField
         usernameTextField.delegate = self
         
@@ -78,7 +80,6 @@ class SearchVC: UIViewController {
     }
     
     private func configureCallToActionButton() {
-        view.addSubview(callToActionButton)
         
         callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
