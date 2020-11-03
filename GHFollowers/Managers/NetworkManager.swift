@@ -5,11 +5,12 @@
 //  Created by Luca Archidiacono on 27.10.20.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let baseUrl = "https://api.github.com"
+    private let baseUrl = "https://api.github.com"
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -43,6 +44,34 @@ class NetworkManager {
                 completion(.success(followers))
             } catch {
                 completion(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    func fetchImage(from urlString: String, completion: @escaping (UIImage) -> Void) {
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            completion(image)
+            return
+        }
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
+            
+            if error != nil { return }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data, let image = UIImage(data: data) else { return }
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            
+            DispatchQueue.main.async {
+                completion(image)
             }
         }
         
