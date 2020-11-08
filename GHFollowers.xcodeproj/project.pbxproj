@@ -28,6 +28,7 @@
 		5CE6F0632544285200D44497 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6F0622544285200D44497 /* GFBodyLabel.swift */; };
 		5CE6F0662544291C00D44497 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6F0652544291C00D44497 /* GFAlertVC.swift */; };
 		5CE6F0692544385B00D44497 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6F0682544385B00D44497 /* UIViewController+Ext.swift */; };
+		5CE77A3825589D4E00AD65A7 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE77A3725589D4E00AD65A7 /* UserInfoVC.swift */; };
 		5CF36EFB255204B90028E73B /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF36EFA255204B90028E73B /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		5CE6F0622544285200D44497 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		5CE6F0652544291C00D44497 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		5CE6F0682544385B00D44497 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		5CE77A3725589D4E00AD65A7 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		5CF36EFA255204B90028E73B /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +211,7 @@
 				5CE6F05925441ECA00D44497 /* FollowerListVC.swift */,
 				5C53A720253F864B00F68DDC /* FavoritesListVC.swift */,
 				5C53A71D253F862100F68DDC /* SearchVC.swift */,
+				5CE77A3725589D4E00AD65A7 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				5C65F49025489F9D00B7051C /* FollowerCell.swift in Sources */,
 				5C65F4932548A01B00B7051C /* GFAvatarImageView.swift in Sources */,
 				5CE6F0662544291C00D44497 /* GFAlertVC.swift in Sources */,
+				5CE77A3825589D4E00AD65A7 /* UserInfoVC.swift in Sources */,
 				5C69B32E254744B800A8F263 /* Follower.swift in Sources */,
 				5C53A706253F80FA00F68DDC /* AppDelegate.swift in Sources */,
 				5CE6F0602544267500D44497 /* GFTitleLabel.swift in Sources */,
