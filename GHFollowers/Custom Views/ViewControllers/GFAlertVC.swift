@@ -9,7 +9,7 @@ import UIKit
 
 class GFAlertVC: UIViewController {
     
-    private let containerView = UIView()
+    private let containerView = UIStackView()
     private let titleLabel = GFTitleLabel(textAlignment: .center, fontSize: 20)
     private let messageLabel = GFBodyLabel(textAlignment: .center)
     private let actionButton = GFButton(backgroundColor: .systemPink, title: "Okay")
@@ -36,14 +36,15 @@ class GFAlertVC: UIViewController {
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75) // opacity
         
         view.addSubview(containerView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(messageLabel)
-        containerView.addSubview(actionButton)
         
         configureContainerView()
         configureTitleLabel()
         configureMessageLabel()
         configureActionButton()
+        
+        containerView.addArrangedSubview(titleLabel)
+        containerView.addArrangedSubview(messageLabel)
+        containerView.addArrangedSubview(actionButton)
     }
     
     private func configureContainerView() {
@@ -51,37 +52,31 @@ class GFAlertVC: UIViewController {
         containerView.layer.cornerRadius = 16
         containerView.layer.borderWidth = 2
         containerView.layer.borderColor = UIColor.white.cgColor
+        
+        //UIStackView approach
+        containerView.axis = NSLayoutConstraint.Axis.vertical
+        containerView.distribution = UIStackView.Distribution.equalSpacing
+        containerView.spacing = padding
+        containerView.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        containerView.isLayoutMarginsRelativeArrangement = true
+        
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            containerView.widthAnchor.constraint(equalToConstant: 280),
-            containerView.heightAnchor.constraint(equalToConstant: 220)
+            containerView.topAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 220),
+            containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50)
         ])
     }
     
     private func configureTitleLabel() {
         titleLabel.text = alertTitle
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-            titleLabel.heightAnchor.constraint(equalToConstant: 28)
-        ])
     }
     
     private func configureMessageLabel() {
         messageLabel.text = message
-        messageLabel.numberOfLines = 4
-        
-        NSLayoutConstraint.activate([
-            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
-            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
-            messageLabel.bottomAnchor.constraint(equalTo: actionButton.topAnchor, constant: -12)
-        ])
+        messageLabel.numberOfLines = 0
     }
     
     private func configureActionButton() {
@@ -89,9 +84,6 @@ class GFAlertVC: UIViewController {
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            actionButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
-            actionButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
-            actionButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
