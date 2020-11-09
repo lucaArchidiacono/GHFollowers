@@ -37,14 +37,14 @@ class GFAlertVC: UIViewController {
         
         view.addSubview(containerView)
         
+        containerView.addArrangedSubview(titleLabel)
+        containerView.addArrangedSubview(messageLabel)
+        containerView.addArrangedSubview(actionButton)
+        
         configureContainerView()
         configureTitleLabel()
         configureMessageLabel()
         configureActionButton()
-        
-        containerView.addArrangedSubview(titleLabel)
-        containerView.addArrangedSubview(messageLabel)
-        containerView.addArrangedSubview(actionButton)
     }
     
     private func configureContainerView() {
@@ -55,7 +55,7 @@ class GFAlertVC: UIViewController {
         
         //UIStackView approach
         containerView.axis = NSLayoutConstraint.Axis.vertical
-        containerView.distribution = UIStackView.Distribution.equalSpacing
+        containerView.distribution = UIStackView.Distribution.fill
         containerView.spacing = padding
         containerView.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         containerView.isLayoutMarginsRelativeArrangement = true
@@ -65,7 +65,7 @@ class GFAlertVC: UIViewController {
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            containerView.topAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 220),
+            containerView.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 180),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50)
         ])
     }
