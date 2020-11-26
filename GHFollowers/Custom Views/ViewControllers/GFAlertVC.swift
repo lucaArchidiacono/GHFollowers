@@ -54,8 +54,8 @@ class GFAlertVC: UIViewController {
         containerView.layer.borderColor = UIColor.white.cgColor
         
         //UIStackView approach
-        containerView.axis = NSLayoutConstraint.Axis.vertical
-        containerView.distribution = UIStackView.Distribution.fill
+        containerView.axis = .vertical
+        containerView.distribution = .fill
         containerView.spacing = padding
         containerView.layoutMargins = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
         containerView.isLayoutMarginsRelativeArrangement = true
